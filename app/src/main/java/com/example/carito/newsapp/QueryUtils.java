@@ -6,6 +6,7 @@ import android.util.Log;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -14,7 +15,10 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.nio.charset.Charset;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -22,7 +26,9 @@ import java.util.List;
  */
 public final class QueryUtils {
 
-    /** Tag for the log messages */
+    /**
+     * Tag for the log messages
+     */
     private static final String LOG_TAG = QueryUtils.class.getSimpleName();
 
     private QueryUtils() {
@@ -51,7 +57,6 @@ public final class QueryUtils {
 //        } catch (InterruptedException e) {
 //            e.printStackTrace();
 //        }
-
 
         // Return the list of {@link News}s
         return newsList;
@@ -165,13 +170,25 @@ public final class QueryUtils {
                 String section = currentNews.getString("sectionName");
 
                 // Extract the value for the key called "time"
-                long time = 0; // currentNews.getLong("webPublicationDate");
+                String isoTime = currentNews.getString("webPublicationDate");
+                // Create a format to read dates like "2018-09-20T20:49:37Z",
+                SimpleDateFormat isoFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'");
+                long webPublicationDate;
+                try {
+                    // Parse the formatted date
+                    Date parsedDate = isoFormat.parse(isoTime);
+                    // Extract the webPublicationDate in Milliseconds
+                    webPublicationDate = parsedDate.getTime();
+                } catch (ParseException e) {
+                    webPublicationDate = 0;
+                    e.printStackTrace();
+                }
 
                 // Extract the value for the key called "url"
                 String url = currentNews.getString("webUrl");
 
                 // Create a new {@link News} object with the title, section, time and url from the JSON response.
-                News News = new News(title, section, time, url);
+                News News = new News(title, section, webPublicationDate, url);
 
                 // Add the new {@link News} to the list of News(NewsList).
                 newsList.add(News);

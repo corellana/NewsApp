@@ -18,13 +18,12 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
-// (B) public class NewsActivity extends AppCompatActivity {
 public class NewsActivity extends AppCompatActivity implements LoaderCallbacks<List<News>> {
 
     private static final String LOG_TAG = NewsActivity.class.getName();
 
     /**
-     * URL for The Guardian data from the The Guardian dataset
+     * URL for The Guardian data from the The Guardian dataset.
      */
     private static final String THEGUARDIAN_REQUEST_URL =
             "https://content.guardianapis.com/world?api-key=b769310f-8677-43d0-aa0b-14ff46c3daff";
@@ -40,7 +39,9 @@ public class NewsActivity extends AppCompatActivity implements LoaderCallbacks<L
      */
     private NewsAdapter mAdapter;
 
-    /** TextView that is displayed when the list is empty */
+    /**
+     * TextView that is displayed when the list is empty
+     */
     private TextView mEmptyStateTextView;
 
     @Override

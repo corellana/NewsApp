@@ -1,12 +1,9 @@
 package com.example.carito.newsapp;
 
-import java.text.SimpleDateFormat;
-
 /**
  * {@link News} represents a News that the user wants to read.
- * It contains title, name of the section, author name, date published and URL of the news.
+ * It contains title, name of the section, date published and the user can access to the specific url.
  */
-
 public class News {
 
     /**
@@ -24,22 +21,24 @@ public class News {
      */
     private String mUrl;
 
-    /** Time of the news date published in milliseconds*/
-    private long mTimeInMilliseconds;
+    /**
+     * Time of the news date published in milliseconds
+     */
+    private long mTime;
 
     /**
      * CONSTRUCTOR
      * Create a new News object.
      *
-     * @param title   is the  title for the news.
-     * @param section is the specific section/category of the news.
-     * @param timeInMilliseconds    is the day the article was published.
-     * @param url     is the specific url for that article.
+     * @param title              is the  title for the news.
+     * @param section            is the specific section/category of the news.
+     * @param time               is the day the article was published.
+     * @param url                is the specific url for that article.
      */
-    public News(String title, String section, long timeInMilliseconds, String url) {
+    public News(String title, String section, long time, String url) {
         mTitle = title;
         mSection = section;
-        mTimeInMilliseconds = timeInMilliseconds;
+        mTime = time;
         mUrl = url;
     }
 
@@ -66,9 +65,11 @@ public class News {
         return mUrl;
     }
 
-    /** Get the date of the news in milliseconds */
-    public long getTimeInMilliseconds() {
-        return mTimeInMilliseconds;
+    /**
+     * Get the date of the news
+     */
+    public long getTime() {
+        return mTime;
     }
 
 }

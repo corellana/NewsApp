@@ -3,8 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_marginLeft="16dp"
-    android:layout_marginStart="16dp"
+    android:layout_marginLeft="@dimen/margin_in"
+    android:layout_marginStart="@dimen/margin_in"
     android:orientation="vertical">
 
     <LinearLayout
@@ -12,70 +12,70 @@
         android:layout_height="match_parent">
         android:orientation="horizontal">
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical"
-        android:padding="16dp"
-        android:orientation="vertical">
-
-        <TextView
-            android:id="@+id/section_text_view"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_gravity="start"
-            android:textColor="@color/colorAccent"
-            android:textSize="12sp"
-            android:fontFamily="@font/robotoregular"
-            tools:text="World News" />
-
-        <TextView
-            android:id="@+id/date_text_view"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_gravity="start"
-            android:textColor="@color/secondaryText"
-            android:textSize="12sp"
-            android:fontFamily="@font/robotoregular"
-            tools:text="Mar 6, 2010" />
-
-        <TextView
-            android:id="@+id/time"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_gravity="start"
-            android:textColor="@color/secondaryText"
-            android:fontFamily="@font/robotoregular"
-            android:textSize="12sp"
-            tools:text="3:00 PM" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="16dp">
-
-        <TextView
-            android:id="@+id/title_text_view"
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="start"
-            android:textColor="@color/primaryText"
-            android:textSize="20sp"
-            android:layout_marginRight="8dp"
-            android:layout_marginEnd="12dp"
-            android:fontFamily="@font/robotomedium"
-            tools:text="title title title tiele jahaha jajaj ajajaja ajaaa" />
+            android:layout_gravity="center_vertical"
+            android:orientation="vertical"
+            android:padding="@dimen/padding">
 
-    </LinearLayout>
+            <TextView
+                android:id="@+id/section_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="start"
+                android:fontFamily="@font/robotoregular"
+                android:textColor="@color/colorAccent"
+                android:textSize="@dimen/normal_text"
+                tools:text="@string/section_hint" />
+
+            <TextView
+                android:id="@+id/date_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="start"
+                android:fontFamily="@font/robotoregular"
+                android:textColor="@color/secondaryText"
+                android:textSize="@dimen/normal_text"
+                tools:text="@string/date_hint" />
+
+            <TextView
+                android:id="@+id/time"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="start"
+                android:fontFamily="@font/robotoregular"
+                android:textColor="@color/secondaryText"
+                android:textSize="@dimen/normal_text"
+                tools:text="@string/time_hint" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/padding">
+
+            <TextView
+                android:id="@+id/title_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginEnd="@dimen/marginEnd_title"
+                android:layout_marginRight="@dimen/marginRight_title"
+                android:fontFamily="@font/robotomedium"
+                android:textColor="@color/primaryText"
+                android:textSize="@dimen/title_text"
+                tools:text="@string/title_hint" />
+
+        </LinearLayout>
 
     </LinearLayout>
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/divider"/>
+        android:layout_height="@dimen/div_height"
+        android:background="@color/divider" />
 
 </LinearLayout>

@@ -20,8 +20,8 @@ public class NewsAdapter extends ArrayAdapter<News> {
     /**
      * CONSTRUCTOR - Constructs/Create a new {@Link NewsAdapter} object.
      *
-     * @param context     The current context. Used to inflate the layout file.
-     * @param newsList    A List of news objects to display in a list.
+     * @param context  The current context. Used to inflate the layout file.
+     * @param newsList A List of news objects to display in a list.
      */
     public NewsAdapter(Activity context, ArrayList<News> newsList) {
         super(context, 0, newsList);
@@ -60,9 +60,8 @@ public class NewsAdapter extends ArrayAdapter<News> {
         // Display the section of the current news in that TextView
         sectionView.setText(currentNews.getSection());
 
-
-        // Create a new Date object from the time in milliseconds of the news date published
-        Date dateObject = new Date(currentNews.getTimeInMilliseconds());
+        // Create a new Date object from the time of the news date published
+        Date dateObject = new Date(currentNews.getTime());
 
         // Find the TextView with view ID date
         TextView dateTextView = (TextView) listItemView.findViewById(R.id.date_text_view);
@@ -80,9 +79,7 @@ public class NewsAdapter extends ArrayAdapter<News> {
 
         // Return the whole list item layout so that it can be shown in the ListView
         return listItemView;
-
     }
-
 
     /**
      * Return the formatted date string (i.e. "Mar 3, 1984") from a Date object.
