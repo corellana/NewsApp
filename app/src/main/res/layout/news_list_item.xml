@@ -69,6 +69,16 @@
                 android:textSize="@dimen/title_text"
                 tools:text="@string/title_hint" />
 
+            <TextView
+                android:id="@+id/author_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:fontFamily="@font/robotolight"
+                android:textColor="@color/secondaryText"
+                android:textSize="@dimen/normal_text"
+                tools:text="@string/author_hint" />
+
         </LinearLayout>
 
     </LinearLayout>

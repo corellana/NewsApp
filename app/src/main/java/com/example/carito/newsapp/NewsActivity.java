@@ -26,7 +26,7 @@ public class NewsActivity extends AppCompatActivity implements LoaderCallbacks<L
      * URL for The Guardian data from the The Guardian dataset.
      */
     private static final String THEGUARDIAN_REQUEST_URL =
-            "https://content.guardianapis.com/world?api-key=b769310f-8677-43d0-aa0b-14ff46c3daff";
+            "https://content.guardianapis.com/world?api-key=b769310f-8677-43d0-aa0b-14ff46c3daff&show-tags=contributor";
 
     /**
      * Constant value for the news loader ID. We can choose any integer.

@@ -77,6 +77,11 @@ public class NewsAdapter extends ArrayAdapter<News> {
         // Display the time of the current earthquake in that TextView
         timeView.setText(formattedTime);
 
+        // Find the TextView with view ID author
+        TextView authorTextView = (TextView) listItemView.findViewById(R.id.author_text_view);
+        // Display the author of the current news in that TextView
+        authorTextView.setText(currentNews.getAuthor());
+
         // Return the whole list item layout so that it can be shown in the ListView
         return listItemView;
     }
@@ -98,8 +103,3 @@ public class NewsAdapter extends ArrayAdapter<News> {
     }
 
 }
-
-
-
-
-

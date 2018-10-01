@@ -187,8 +187,19 @@ public final class QueryUtils {
                 // Extract the value for the key called "url"
                 String url = currentNews.getString("webUrl");
 
-                // Create a new {@link News} object with the title, section, time and url from the JSON response.
-                News News = new News(title, section, webPublicationDate, url);
+                String author = null;
+                if (currentNews.has("tags")) {
+                    JSONArray tagsArray = currentNews.getJSONArray("tags");
+                    // For each tags in the tagsArray, create an {@link Tags} object
+                    for (int j = 0; j < tagsArray.length(); j++) {
+                        // We start with position 0, which is the initial value of the counter j variable.
+                        JSONObject currentTags = tagsArray.getJSONObject(j);
+                        // Extract the value for the key called "author"
+                        author = currentTags.getString("webTitle");
+                    }
+                }
+                // Create a new {@link News} object with the title, section, time, url and author from the JSON response.
+                News News = new News(title, section, webPublicationDate, url, author);
 
                 // Add the new {@link News} to the list of News(NewsList).
                 newsList.add(News);
