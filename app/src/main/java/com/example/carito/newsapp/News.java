@@ -39,7 +39,7 @@ public class News {
      * @param section            is the specific section/category of the news.
      * @param time               is the day the article was published.
      * @param url                is the specific url for that article.
-     * @param Author             is who wrote the article.
+     * @param author             is who wrote the article.
      */
     public News(String title, String section, long time, String url, String author) {
         mTitle = title;
