@@ -187,6 +187,7 @@ public final class QueryUtils {
                 // Extract the value for the key called "url"
                 String url = currentNews.getString("webUrl");
 
+                // Extract the value for the key called "contributor"
                 String author = null;
                 if (currentNews.has("tags")) {
                     JSONArray tagsArray = currentNews.getJSONArray("tags");
@@ -194,8 +195,20 @@ public final class QueryUtils {
                     for (int j = 0; j < tagsArray.length(); j++) {
                         // We start with position 0, which is the initial value of the counter j variable.
                         JSONObject currentTags = tagsArray.getJSONObject(j);
-                        // Extract the value for the key called "author"
+                        // Extract the value for the key called "contributor"
                         author = currentTags.getString("webTitle");
+                    }
+                }
+
+                Integer rating = null;
+                if (currentNews.has("fields")) {
+                    JSONArray fieldsArray = currentNews.getJSONArray("fields");
+                    // For each field in the fieldArray, create an {@link Fields} object
+                    for (int a = 0; a < fieldsArray.length(); a++) {
+                        // We start with position 0, which is the initial value of the counter a variable.
+                        JSONObject currentFields = fieldsArray.getJSONObject(a);
+                        // Extract the value for the key called "starRating"
+                        rating = currentFields.getInt("starRating");
                     }
                 }
                 // Create a new {@link News} object with the title, section, time, url and author from the JSON response.

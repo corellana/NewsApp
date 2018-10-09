@@ -30,8 +30,7 @@ public class NewsActivity extends AppCompatActivity implements LoaderCallbacks<L
      * URL for The Guardian data from the The Guardian dataset.
      */
     private static final String THEGUARDIAN_REQUEST_URL =
-            "https://content.guardianapis.com/world";
-
+            "https://content.guardianapis.com/";
 
     /**
      * Constant value for the news loader ID. We can choose any integer.
@@ -63,8 +62,8 @@ public class NewsActivity extends AppCompatActivity implements LoaderCallbacks<L
         mEmptyStateTextView = (TextView) findViewById(R.id.empty_view);
         newsListView.setEmptyView(mEmptyStateTextView);
 
-        // Set the adapter on the {@link ListView}
-        // so the list can be populated in the user interface
+        // Set the adapter on the {@link ListView} so the list can be
+        // populated in the user interface
         newsListView.setAdapter(mAdapter);
 
         // Set an item click listener on the ListView, which sends an intent to a web browser
@@ -118,32 +117,42 @@ public class NewsActivity extends AppCompatActivity implements LoaderCallbacks<L
     @Override
     // onCreateLoader instantiates and returns a new Loader for the given ID
     public Loader<List<News>> onCreateLoader(int i, Bundle bundle) {
-
         SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
-
-        // getString retrieves a String value from the preferences. The second parameter is
-        // the default value for this preference.
-        String minMagnitude = sharedPrefs.getString(
-                getString(R.string.settings_min_magnitude_key),
-                getString(R.string.settings_min_magnitude_default));
-
-        String orderBy = sharedPrefs.getString(
-                getString(R.string.settings_order_by_key),
-                getString(R.string.settings_order_by_default)
-        );
-
-        // parse breaks apart the URI string that's passed into its parameter
+        // Parse breaks apart the URI string that's passed into its parameter
         Uri baseUri = Uri.parse(THEGUARDIAN_REQUEST_URL);
 
         // buildUpon prepares the baseUri that we just parsed so we can add query parameters to it
         Uri.Builder uriBuilder = baseUri.buildUpon();
 
-        // Append query parameter and its value. For example, the `format=geojson`
-        uriBuilder.appendQueryParameter("api-key", "b769310f-8677-43d0-aa0b-14ff46c3daff");
+        // getString retrieves a String value from the preferences. The second parameter is
+        // the default value for this preference.
+        String section = sharedPrefs.getString(
+                getString(R.string.settings_section_key),
+                getString(R.string.settings_section_default));
+        uriBuilder.appendPath(section);
+
+        // (API) Additional information > Name
         uriBuilder.appendQueryParameter("show-tags", "contributor");
-        uriBuilder.appendQueryParameter("orderby", orderBy);
-        // Return the completed uri `https://content.guardianapis.com/world?api-key=b769310f-8677-43d0-aa0b-14ff46c3daff&show-tags=contributor
-        return new NewsLoader(this, uriBuilder.toString());
+
+        String filterBy = sharedPrefs.getString(
+                getString(R.string.settings_filter_by_key),
+                getString(R.string.settings_filter_by_default)
+        );
+
+        // (API) Parameters > Filters
+        if (filterBy.equals("popular")) {
+
+            uriBuilder.appendQueryParameter("star-rating", "5|4|3");
+        } else {
+
+        }
+
+        // (API) Parameters > Authentication parameters
+        uriBuilder.appendQueryParameter("api-key", "b769310f-8677-43d0-aa0b-14ff46c3daff");
+
+        // Return the completed uri
+        String finalURL = uriBuilder.toString();
+        return new NewsLoader(this, finalURL);
 
     }
 

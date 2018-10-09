@@ -80,7 +80,7 @@ public class News {
     }
 
     /**
-     * Get the date of the news
+     * Get the author of the news
      */
     public String getAuthor() {
         return mAuthor;

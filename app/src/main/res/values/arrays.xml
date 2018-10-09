@@ -1,12 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string-array name="settings_order_by_labels">
-        <item>@string/settings_order_by_magnitude_label</item>
-        <item>@string/settings_order_by_most_recent_label</item>
+    <string-array name="settings_filter_by_labels">
+        <item>@string/settings_filter_by_latest_label</item>
+        <item>@string/settings_filter_by_most_popular_label</item>
     </string-array>
 
-    <string-array name="settings_order_by_values">
-        <item>@string/settings_order_by_magnitude_value</item>
-        <item>@string/settings_order_by_most_recent_value</item>
+    <string-array name="settings_filter_by_values">
+        <item>@string/settings_filter_by_latest_value</item>
+        <item>@string/settings_filter_by_most_popular_value</item>
     </string-array>
+
+    <string-array name="settings_section_values">
+        <item>business</item>
+        <item>inequality</item>
+        <item>media</item>
+        <item>politics</item>
+        <item>world</item>
+    </string-array>
+
+    <string-array name="settings_section_labels">
+        <item>Business</item>
+        <item>Inequality</item>
+        <item>Media</item>
+        <item>Politics</item>
+        <item>World news</item>
+    </string-array>
+
+
 </resources>

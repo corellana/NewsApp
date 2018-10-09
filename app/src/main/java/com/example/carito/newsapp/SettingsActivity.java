@@ -23,15 +23,13 @@ public class SettingsActivity extends AppCompatActivity {
             super.onCreate(savedInstanceState);
             addPreferencesFromResource(R.xml.settings_main);
 
-            Preference minMagnitude = findPreference(getString(R.string.settings_min_magnitude_key));
-            bindPreferenceSummaryToValue(minMagnitude);
+            Preference section = findPreference(getString(R.string.settings_section_key));
+            bindPreferenceSummaryToValue(section);
 
-            Preference orderBy = findPreference(getString(R.string.settings_order_by_key));
-            bindPreferenceSummaryToValue(orderBy);
+            Preference filterBy = findPreference(getString(R.string.settings_filter_by_key));
+            bindPreferenceSummaryToValue(filterBy);
         }
 
-        // Preference.OnPreferenceChangeListener, this interface requires us to fill in
-        // the OnPreferenceChange method.
         @Override
         // this method will be called when the user has changed a Preference, so inside of it we
         // should add whatever action we want to happen after this change. In this case, we’ll want

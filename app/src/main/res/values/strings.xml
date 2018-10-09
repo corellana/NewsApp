@@ -22,24 +22,31 @@
     <string name="settings_title">News Settings</string>
 
     <!-- Setting - the name of the preference -->
-    <string name="settings_min_magnitude_label">Minimum Magnitude</string>
-    <string name="settings_min_magnitude_key" translatable="false">min_magnitude</string>
-    <string name="settings_min_magnitude_default" translatable="false">0</string>
+    <string name="settings_min_rating_label">Minimum Rating</string>
+    <string name="settings_min_rating_key" translatable="false">min_rating</string>
+    <string name="settings_min_rating_default" translatable="false">0</string>
 
     <!-- Order by Preference -->
     <!-- Strings For Order-By Preference [CHAR LIMIT=30] -->
-    <string name="settings_order_by_label">Order By</string>
-    <string name="settings_order_by_key" translatable="false">order_by</string>
-    <string name="settings_order_by_default" translatable="false">@string/settings_order_by_magnitude_value</string>
+    <string name="settings_filter_by_label">Filter By</string>
+    <string name="settings_filter_by_key" translatable="false">filter_by</string>
+    <string name="settings_filter_by_default" translatable="false">@string/settings_filter_by_latest_value</string>
 
-    <!-- Label for order-by magnitude option [CHAR LIMIT=20] -->
-    <string name="settings_order_by_magnitude_label">Magnitude</string>
-    <string name="settings_order_by_magnitude_value" translatable="false">magnitude</string>
+    <!-- Label for filter-by latest option [CHAR LIMIT=20] -->
+    <string name="settings_filter_by_latest_label">Latest</string>
+    <string name="settings_filter_by_latest_value" translatable="false">latest</string>
 
-    <!-- Label for order-by most recent option [CHAR LIMIT=20] -->
-    <string name="settings_order_by_most_recent_label">Most Recent</string>
-    <string name="settings_order_by_most_recent_value" translatable="false">time</string>
+    <!-- Label for filter-by [CHAR LIMIT=20] -->
+    <string name="settings_filter_by_most_popular_label">Most Popular</string>
+    <string name="settings_filter_by_most_popular_value" translatable="false">popular</string>
+
+    <string name="settings_section_key">section</string>
+    <string name="settings_section_default">world</string>
+
 </resources>
 
+
+<!-- By Section   // Most Recent -->
+<!-- By Star Rating // Magnitud-->
 
 
